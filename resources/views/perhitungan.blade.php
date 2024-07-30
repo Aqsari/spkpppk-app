@@ -1,4 +1,4 @@
 <x-layout>
-    <x-slot:title>{{ $title }}</x-slot:title>
+    <x-subtitle>{{ $title }}</x-subtitle>
     <h3>ini adalah Perhitungan</h3>
 </x-layout>
