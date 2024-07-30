@@ -10,12 +10,12 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="h-full">
-<div class="min-h-full">
+<div class="min-h-fit">
        <x-header></x-header>
     <main>
       <div class="flex">
       <x-sidebar></x-sidebar>
-      <div class="flex-grow mt-12 bg-green-200">
+      <div class="flex-auto h-auto mt-12 bg-green-200">
         <div class="p-4">
           
           {{ $slot }}

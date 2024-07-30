@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+Route::get('import-excel',[UserController::class,'import_excel']);
 
 Route::get('/', function () {
     return view('home',['title'=> ' ']);
@@ -11,7 +14,28 @@ Route::get('/home', function () {
 });
 
 Route::get('/alternatif', function () {
-    return view('alternatif',['title'=> 'Input Nilai Kriteria']);
+    return view('alternatif',['title'=> 'Input Nilai Kriteria', 'pilihan'=>[
+       [ 'kriteria1' => 'xxx',
+       'kriteria2' => 'xxx',
+       'kriteria3' => 'xxx',
+       'kriteria4' => 'xxx'],
+       [ 'kriteria1' => 'xxx',
+       'kriteria2' => 'xxx',
+       'kriteria3' => 'xxx',
+       'kriteria4' => 'xxx'],
+       [ 'kriteria1' => 'xxx',
+       'kriteria2' => 'xxx',
+       'kriteria3' => 'xxx',
+       'kriteria4' => 'xxx'],
+       [ 'kriteria1' => 'xxx',
+       'kriteria2' => 'xxx',
+       'kriteria3' => 'xxx',
+       'kriteria4' => 'xxx'],
+       [ 'kriteria1' => 'xxx',
+       'kriteria2' => 'xxx',
+       'kriteria3' => 'xxx',
+       'kriteria4' => 'xxx']
+    ]]);
 });
 
 Route::get('/bobot', function () {
