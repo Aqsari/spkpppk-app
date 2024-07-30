@@ -9,5 +9,7 @@
 </head>
 <body>
     <h1>Perhitungan</h1>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

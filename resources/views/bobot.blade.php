@@ -9,5 +9,7 @@
 </head>
 <body>
     <h1>Bobot Nilai</h1>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
