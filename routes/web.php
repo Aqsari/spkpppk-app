@@ -7,23 +7,23 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('home',['title'=> 'Home Page']);
 });
 
 Route::get('/alternatif', function () {
-    return view('alternatif');
+    return view('alternatif',['title'=> 'Alternatif']);
 });
 
 Route::get('/bobot', function () {
-    return view('bobot');
+    return view('bobot', ['title'=> 'Bobot']);
 });
 
 Route::get('/perhitungan', function () {
-    return view('perhitungan');
+    return view('perhitungan',['title'=> 'Perhitungan']);
 });
 
 Route::get('/hasil', function () {
-    return view('hasil');
+    return view('hasil',['title'=> 'Hasil']);
 });
 
 Route::get('/login', function () {
