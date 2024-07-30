@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserControllers;
 
-Route::get('import-excel',[UserController::class,'import_excel']);
+Route::get('/import-excel',[UserControllers::class,'import_excel']);
+Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
 
 Route::get('/', function () {
     return view('home',['title'=> ' ']);
@@ -12,6 +13,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home',['title'=> ' ']);
 });
+
 
 Route::get('/alternatif', function () {
     return view('alternatif',['title'=> 'Input Nilai Kriteria', 'pilihan'=>[
