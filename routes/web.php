@@ -23,7 +23,10 @@ Route::get('/alternatif', function () {
 
 Route::get('/datapeserta/{id}', function (Data $data) {
 
-    return view('datapeserta',['title'=>'Data Peserta','data'=> $data]);
+    return view('datapeserta',[
+        'title'=>'Data Peserta',
+        'data'=> $data, 
+        'status'=>['name'=>'asa','h']]);
 });
 
 Route::get('/bobot', function () {

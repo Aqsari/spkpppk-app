@@ -12,6 +12,7 @@ Berikut merupakan beberapa extention yang harus di install untuk menjalankan apl
 
 - [Laravel](https://laravel.com/docs/11.x/installation).
 - [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/installation.html).
+- [livewire](https://laravel-livewire.com/docs/2.x/installation). -> composer require livewire/livewire
 
 ## Setup Database 
 
