@@ -20,6 +20,13 @@ Route::get('/alternatif', function () {
     return view('alternatif',['title'=> 'Input Nilai Kriteria', 'datas'=> Data::all()]);
 });
 
+Route::get('/alternatif/{$id}', function ($id) {
+
+    $data =Data::find($id);
+
+    return view('alternatif',['title'=> 'Data peserta', 'data'=> $data]);
+});
+
 Route::get('/bobot', function () {
     return view('bobot', ['title'=> 'Input Nilai Bobot']);
 });
