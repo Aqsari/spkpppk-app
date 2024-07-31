@@ -21,9 +21,9 @@ Route::get('/alternatif', function () {
     return view('alternatif',['title'=> 'Input Nilai Kriteria', 'datas'=> Data::all()]);
 });
 
-Route::get('/datapeserta}', function () {
+Route::get('/datapeserta/{id}', function (Data $data) {
 
-    return view('datapeserta',['title'=>'Data Peserta']);
+    return view('datapeserta',['title'=>'Data Peserta','data'=> $data]);
 });
 
 Route::get('/bobot', function () {
