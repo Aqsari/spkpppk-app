@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserControllers;
 use App\Models\Data;
+use App\Models\Criteria;
 
 Route::get('/import-excel',[UserControllers::class,'import_excel']);
 Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
@@ -20,15 +21,13 @@ Route::get('/alternatif', function () {
     return view('alternatif',['title'=> 'Input Nilai Kriteria', 'datas'=> Data::all()]);
 });
 
-Route::get('/alternatif/{$id}', function ($id) {
+Route::get('/datapeserta}', function () {
 
-    $data =Data::find($id);
-
-    return view('alternatif',['title'=> 'Data peserta', 'data'=> $data]);
+    return view('datapeserta',['title'=>'Data Peserta']);
 });
 
 Route::get('/bobot', function () {
-    return view('bobot', ['title'=> 'Input Nilai Bobot']);
+    return view('bobot', ['title'=> 'Input Nilai Bobot','criterias'=> Criteria::all()]);
 });
 
 Route::get('/perhitungan', function () {
