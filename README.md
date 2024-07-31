@@ -12,3 +12,13 @@ Berikut merupakan beberapa extention yang harus di install untuk menjalankan apl
 
 - [Laravel](https://laravel.com/docs/11.x/installation).
 - [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/installation.html).
+
+## Setup Database 
+
+- jalankan -> php artisan migrate
+
+
+## Prosedur menjalankan web app
+- untuk menjalankan program hidupkan server php dan mysql terlebih dahulu
+- lalu jalankan perintah  ->  npm run dev
+- akses web app dengan mengakses localhost atau link spkpppk-app.test
