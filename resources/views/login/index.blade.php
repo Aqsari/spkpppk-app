@@ -25,13 +25,17 @@
             </div>
 
             <div class="mt-10 sm:mx-auto  sm:max-w-sm">
-                <form class="space-y-6" action="#" method="POST">
+                <form class="space-y-6" action="/login" method="POST">
+                    @csrf
                     <div>
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                         <div class="mt-2 ">
-                            <input id="email" name="email" type="email" autocomplete="email" required
+                            <input id="username" name="username" type="text" autocomplete="username" required value="{{ old('username') }}"
                                 class="block w-full  px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                         </div>
+                        @error('username')
+                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
@@ -41,9 +45,12 @@
                         </div>
                         <div class="mt-2">
                             <input id="password" name="password" type="password" autocomplete="current-password"
-                                required
+                                required value="{{ old('password') }}"
                                 class="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                         </div>
+                        @error('password')
+                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
