@@ -1,5 +1,38 @@
 <x-layoutlogin>
+  <!-- Dismissible Alert -->
+<!-- Modal -->
+@if (session()->has('Sukses') )
+<div id="modal" class="modal fixed h-fix inset-0 z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm mx-auto relative">
+        <button id="close-modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <p class="mt-4">{{ session('Sukses') }}</p>
+    </div>
+</div>
+@endif
+
+<script>
+    // JavaScript to handle modal visibility
+    const closeModalButton = document.getElementById('close-modal');
+    const modal = document.getElementById('modal');
   
+    closeModalButton.addEventListener('click', () => {
+       
+        modal.style.display = 'none';
+        session()->forget('Sukses');
+    });
+    
+    // Also hide the modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+        session()->forget('Sukses');
+    });
+</script>
         <div style="height: 90%" class="items-center  my-9 rounded-md border-2 border-green-900 bg-white lg:grid lg:grid-cols-2 lg:gap-x-10 lg:space-y-1 justify-center">
         {{-- buat logo dan judul --}}
         <div class=" flex flex-col rounded-md  my-6 " >
