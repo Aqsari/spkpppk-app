@@ -47,3 +47,7 @@ Route::get('/hasil', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+
+// Authentication Routes
+require __DIR__.'/auth.php';
