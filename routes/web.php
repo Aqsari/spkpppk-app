@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserControllers;
+use App\Http\Controllers\ValueControler;
 use App\Models\Data;
+use App\Models\Value;
 use App\Models\Criteria;
+use App\Models\Result;
 
 Route::get('/import-excel',[UserControllers::class,'import_excel']);
 Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
@@ -38,7 +41,7 @@ Route::get('/perhitungan', function () {
 });
 
 Route::get('/hasil', function () {
-    return view('hasil',['title'=> 'Hasil Ranking Calon PPPK Kementrian Agama Tanah Datar']);
+    return view('hasil',['title'=> 'Hasil Ranking Calon PPPK Kementrian Agama Tanah Datar','results'=> Result::all(), 'values'=> Value::all()]);
 });
 
 Route::get('/login', function () {

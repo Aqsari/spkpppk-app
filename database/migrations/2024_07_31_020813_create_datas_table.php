@@ -21,17 +21,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('criterias', function (Blueprint $table) {
-            $table->id();
-            $table->string('criteria_name')->unique();
-            $table->double('criteria1');
-            $table->double('criteria2');
-            $table->double('criteria3');
-            $table->double('criteria4');
-            $table->string('criteria_type');
-            $table->timestamps();
-        });
-
         Schema::create('alternatives', function (Blueprint $table) {
             $table->id();
             $table->string('alternative_name')->unique();
@@ -53,6 +42,7 @@ return new class extends Migration
             $table->string('status');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -61,7 +51,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('datas');
-        Schema::dropIfExists('criterias');
         Schema::dropIfExists('alternatives');
         Schema::dropIfExists('results');
     }
