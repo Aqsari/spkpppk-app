@@ -22,4 +22,5 @@ Berikut merupakan beberapa extention yang harus di install untuk menjalankan apl
 ## Prosedur menjalankan web app
 - untuk menjalankan program hidupkan server php dan mysql terlebih dahulu
 - lalu jalankan perintah  ->  npm run dev
+- untuk pertama kali setup data awal dengan -> php artisan db:seed
 - akses web app dengan mengakses localhost atau link spkpppk-app.test
