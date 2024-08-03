@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
     <div class="flex flex-row place-items-end  rounded-md " ">
 
         <div class="basis-3/4"> <x-subtitle>{{ $title }}</x-subtitle></div>

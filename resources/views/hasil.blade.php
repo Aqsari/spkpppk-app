@@ -1,5 +1,5 @@
 <x-layout>
-
+    <x-slot:title>{{ $title }}</x-slot:title>
     {{-- subtitle dan buttom atas --}}
     <div class="flex flex-row place-items-end">
         <div class="basis-3/4"> <x-subtitle>{{ $title }}</x-subtitle></div>

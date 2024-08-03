@@ -1,6 +1,6 @@
 
 <x-layout>
-    
+   <x-slot:title>{{ $title }}</x-slot:title>
         <x-subtitle>{{ $title }}</x-subtitle>
          <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50">
         <p class="text-2xl text-gray-400">

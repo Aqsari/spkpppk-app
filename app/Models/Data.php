@@ -9,4 +9,6 @@ class Data extends Model
 {
     protected $table ='datas';
     use HasFactory;
+
+    protected $fillable = ['name', 'data1', 'data2', 'data3', 'data4'];
 }

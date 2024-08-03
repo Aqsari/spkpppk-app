@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
     <div class="grid">
         {{-- <x-subtitle>{{ $title }}</x-subtitle> --}}
 

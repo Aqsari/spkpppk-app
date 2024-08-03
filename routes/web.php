@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserControllers;
-use App\Http\Controllers\ValueControler;
 use App\Models\Data;
 use App\Models\Value;
-use App\Models\Criteria;
 use App\Models\Result;
+use App\Models\Criteria;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ValueControler;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserControllers;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AlternatifController;
 
 Route::get('/import-excel',[UserControllers::class,'import_excel']);
 Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
@@ -25,8 +26,11 @@ Route::get('/home', function () {
 
 
 Route::get('/alternatif', function () {
-    return view('alternatif',['title'=> 'Input Nilai Kriteria', 'datas'=> Data::all()]);
+    return view('alternatif',['title'=> 'Input Nilai Kriteria','datas'=> Data::all()]);
 });
+Route::get('/alternatif.input', ['title'=> 'Input Nilai Kriteria',AlternatifController::class, 'input']);
+Route::post('/alternatif', ['title'=> 'Input Nilai Kriteria',AlternatifController::class, 'store']);
+
 
 Route::get('/datapeserta/{id}', function (Data $data) {
 
