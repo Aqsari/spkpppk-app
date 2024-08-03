@@ -11,6 +11,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserControllers;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\BobotController;
+use App\Models\ValueCriteria;
 
 Route::get('/import-excel',[UserControllers::class,'import_excel']);
 Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
@@ -40,9 +42,13 @@ Route::get('/datapeserta/{id}', function (Data $data) {
         'status'=>['name'=>'asa','h']]);
 })->middleware('auth');
 
+
 Route::get('/bobot', function () {
-    return view('bobot', ['title'=> 'Input Nilai Bobot','criterias'=> Criteria::all()]);
+    return view('bobot', ['title'=> 'Nilai Bobot','criterias'=> ValueCriteria::all()]);
 })->middleware('auth');
+Route::get('/bobot.input', ['title'=> 'Input Nilai Bobot',BobotController::class, 'input']);
+Route::post('/bobot',  ['title'=> 'Input Nilai Bobot',BobotController::class, 'store'])->middleware('auth');
+
 
 Route::get('/perhitungan', function () {
     return view('perhitungan',['title'=> 'Perhitungan dengan Metode AHP']);
