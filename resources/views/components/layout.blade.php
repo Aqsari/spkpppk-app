@@ -19,7 +19,7 @@
                 <div class="h-full  my-12 pb-2">
                     <x-sidebar></x-sidebar>
                 </div>
-                <div class="col-span-5 bg-green-200 py-10">
+                <div class="col-span-5 bg-green-200 py-10 px-10">
 
                   {{ $slot }}
 
