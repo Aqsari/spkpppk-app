@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('datas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('data1');
-            $table->string('data2');
-            $table->string('data3');
-            $table->string('data4');
+            $table->string('name')->unique(); // Unique identifier for each record
+            $table->integer('UMUR'); // Age
+            $table->integer('LAMA_HONOR'); // Length of Honor
+            $table->string('JABATAN'); // Position
+            $table->string('PENDIDIKAN'); // Education
+            $table->string('JURUSAN'); // Major
             $table->timestamps();
         });
 

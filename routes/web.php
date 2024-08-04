@@ -36,6 +36,7 @@ Route::post('/alternatif', ['title'=> 'Input Nilai Kriteria',AlternatifControlle
 Route::delete('/datapeserta/{id}',[AlternatifController::class,'destroy']);
 Route::get('/datapeserta/{id}/edit',[AlternatifController::class,'show'])->name('alternatif.edit');
 Route::put('/alternatif/{id}/edit',[AlternatifController::class,'updates'])->name('alternatif.updates');
+Route::post('alternatif.import',[AlternatifController::class,'import'])->name('alternatif.import');
 
 
 Route::get('/bobot', function () {
