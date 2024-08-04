@@ -1,23 +1,25 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="grid grid-cols-4  place-items-end  rounded-md">
-        <div class="container col-span-3 "> <x-subtitle>{{ $title }}</x-subtitle></div>
-        <div class="grid grid-flow-col mx-4 mb-12">
-            <a href="/alternatif.input" 
-                class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-                Input Data
-        </a>
+    
+        <div class="grid place-items-end  rounded-md">
         <form action="{{ route('alternatif.import') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" name="file" accept=".xlsx, .xls" class="mb-4">
+            
             {{-- <input type="submit" value="Import"> --}}
+            <input type="file" name="file" accept=".xlsx, .xls" class="mb-4">
+            <div>
             <button type="submit"
                 class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
                 Import Data Excel
             </button>
-        </form>
-        </div>
+            <a href="/alternatif.input" 
+                class="px-5 py-2   mr-3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+                Input Data
+        </a>
     </div>
+        </form>
+    </div>
+    <div class="container col-span-3 bg-violet-500"> <x-subtitle>{{ $title }}</x-subtitle></div>
 
     <div class="relative overflow-y-auto rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right  text-gray-500 ">
@@ -30,16 +32,19 @@
                         Nama
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Kriteria 1
+                        Umur
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Kriteria 2
+                        Lama Honor
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Kriteria 3
+                        Jabatan
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Kriteria 4
+                        Pendidikan
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Jurusan
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Edit</span>
@@ -55,22 +60,25 @@
                         class="bg-white border-b  hover:bg-gray-50 ">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $data['id'] }}
+                            {{ $loop->iteration }}
                         </th>
                         <td class="px-6 py-4">
                             {{ $data['name'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $data['data1'] }}
+                            {{ $data['UMUR'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $data['data2'] }}
+                            {{ $data['LAMA_HONOR'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $data['data3'] }}
+                            {{ $data['JABATAN'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $data['data4'] }}
+                            {{ $data['PENDIDIKAN'] }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $data['JURUSAN'] }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             <a href="/datapeserta/{{ $data['id'] }}/edit"
