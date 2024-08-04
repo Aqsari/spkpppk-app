@@ -33,14 +33,9 @@ Route::get('/alternatif', function () {
 Route::get('/alternatif.input', ['title'=> 'Input Nilai Kriteria',AlternatifController::class, 'input']);
 Route::post('/alternatif', ['title'=> 'Input Nilai Kriteria',AlternatifController::class, 'store']);
 
-
-Route::get('/datapeserta/{id}', function (Data $data) {
-
-    return view('datapeserta',[
-        'title'=>'Data Peserta',
-        'data'=> $data, 
-        'status'=>['name'=>'asa','h']]);
-})->middleware('auth');
+Route::delete('/datapeserta/{id}',[AlternatifController::class,'destroy']);
+Route::get('/datapeserta/{id}/edit',[AlternatifController::class,'show'])->name('alternatif.edit');
+Route::put('/alternatif/{id}/edit',[AlternatifController::class,'updates'])->name('alternatif.updates');
 
 
 Route::get('/bobot', function () {

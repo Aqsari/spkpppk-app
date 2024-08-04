@@ -68,13 +68,15 @@
                             {{ $data['data4'] }}
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="/datapeserta/{{ $data['id'] }}"
+                            <a href="/datapeserta/{{ $data['id'] }}/edit"
                                 class="font-medium text-blue-600  hover:underline">Edit</a>
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="/datapeserta/{{ $data['id'] }}"
-                                class="font-medium text-blue-600 hover:underline">Delete</a>
-                        </td>
+                           <form action="/datapeserta/{{ $data->id }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button onclick="return confirm('Apakah anda yakin?')"  type="submit" class="font-medium text-blue-600 hover:underline">Delete</button>
+                    </td></form>
                     </tr>
                 @endforeach
 

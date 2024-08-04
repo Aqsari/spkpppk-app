@@ -36,7 +36,7 @@ class LoginController extends Controller
         $request->session()->put('loginfailed', 'Maaf, username dan password anda kurang sesuai.');
 
 
-        return redirect('login');
+        return redirect('/login');
     }
 
     public function logout(Request $request){
