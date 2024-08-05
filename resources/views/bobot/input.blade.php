@@ -1,51 +1,54 @@
 <x-layout >
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="grid">
-        {{-- <x-subtitle>{{ $title }}</x-subtitle> --}}
- 
-        <form action="/bobot" method="POST">
-            @csrf
-        <div class="flex" x-data="{ isOpen: false }">
-            <div class="grow "></div>
-            <div class="grow-0 w-2/4 object-center mt-9 rounded-md px-20 bg-slate-100">
-                <div class="object-center text-center mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h4 class="text-2xl font-medium tracking-tight text-gray-900 ">Input data</h4>
-                </div>
-                <div class="mt-6">
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Kriteria</label>
-                    <input type="text" id="name" name="criteria_name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                </div>
-                <div class="mt-6">
-                    <label for="data1" class="block mb-2 text-sm font-medium text-gray-900 ">Cost/Benefit?
-                        1</label>
-                    <input type="text" id="data1" name="criteria_type"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                </div>
-                <div class="mt-14 mb-20">
-                    <button type="submit"
-                        class="px-4 py-2 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
-                        Simpan
-                    </button>
-                </div>
-            </div>
-            <div class="grow"></div>
+    <div class="grow-0  object-center mt-9 rounded-md px-20 bg-slate-100">
+        <div class="object-center text-center mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
+            <h4 class="text-2xl font-medium tracking-tight text-gray-900 ">
+                Input nilai data perbandingan</h4>
         </div>
-    </form>
+        <form action="/comparisons" method="POST">
+            @csrf
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 border-b">Nama Kriteria</th>
+                            <th class="px-4 py-2 border-b">Nilai Perbandingan</th>
+                            <th class="px-4 py-2 border-b">Nama Kriteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @for ($i=0;$i<6;$i++)
+                       <tr>
+                        <td class="px-4 py-2 border-b">Kriteria {{ $dataMap[$i][0] }} - {{ $criteria[$dataMap[$i][0]] }}</td>
+                        <td class="px-4 py-2 border-b">
+                            <select name="dataStore[{{ $i }}]" class="form-control">
+                                
+                        @foreach ($compair as $value => $label)
+                        <option value="{{ $value }}"
+                        
+                        
+                        @if ($showData[$i]==$value)
+                        selected
+                        
+                        @endif
+                        >{{ $value }} - {{ $label  }}</option>
+                        
+                    @endforeach
+                            </select>
+                            </td>
+                        <td class="px-4 py-2 border-b">Kriteria {{ $dataMap[$i][1] }} - {{ $criteria[$dataMap[$i][1]] }}</td>
+                    </tr>
+                    @endfor
+                     
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid mt-4 pb-7 justify-center">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Simpan</button>
+            </div>
+        </form>
     </div>
-    <script>
-        < script >
-            function showcategory() {
-                var selectBox = document.getElementById('category');
-                var userInput = selectBox.options[selectBox.selectedIndex].value;
-                if (userInput == $sel - > id) {
-                    document.getElementById('description').style.visibility = 'visible';
-                } else {
-                    document.getElementById('description').style.visibility = 'hidden';
-                }
-                return false;
-            }
-    </script>
+</div>
 
 
 </x-layout>

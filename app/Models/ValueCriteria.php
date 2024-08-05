@@ -9,4 +9,6 @@ class ValueCriteria extends Model
 {
     protected $table ='value_criterias';
     use HasFactory;
+
+    protected $fillable = ['criteria_name', 'criteria1', 'criteria2', 'criteria3', 'criteria4','costbenefit'];
 }
