@@ -43,9 +43,11 @@ Route::post('alternatif.import',[AlternatifController::class,'import'])->name('a
 Route::get('/bobot', function () {
     return view('bobot', ['title'=> 'Nilai Bobot','criterias'=> ValueCriteria::all()]);
 })->middleware('auth');
-Route::get('/bobot.input', ['title'=> 'Input Nilai Bobot',BobotController::class, 'input']);
+Route::get('/bobot.index', ['title'=> 'Input Nilai Bobot',BobotController::class, 'index']);
+Route::put('/bobot.index', ['title'=> 'Input Nilai Bobot',BobotController::class, 'update']);
 Route::post('/bobot',  ['title'=> 'Input Nilai Bobot',BobotController::class, 'store'])->middleware('auth');
-
+Route::get('/comparisons', [ComparisonController::class, 'index']);
+Route::post('/comparisons', [ComparisonController::class, 'store']);
 
 Route::get('/perhitungan', function () {
     return view('perhitungan',['title'=> 'Perhitungan dengan Metode AHP']);
@@ -64,5 +66,3 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 
-Route::get('/comparisons', [ComparisonController::class, 'index']);
-Route::post('/comparisons', [ComparisonController::class, 'store']);

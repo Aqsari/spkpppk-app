@@ -3,9 +3,9 @@
     <div class="grid grid-cols-4  place-items-end  rounded-md">
         <div class="container col-span-3 "> <x-subtitle>{{ $title }}</x-subtitle></div>
         <div class="grid grid-flow-col mx-4 mb-12 gap-3">
-        {{-- <a href="/bobot.input" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
-        Tambah Kriteria
-        </a> --}}
+        <a href="/bobot.index" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
+        Edit Cost / Benefit
+        </a>
         <a href="/comparisons" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
             Input Nilai
             </a>
