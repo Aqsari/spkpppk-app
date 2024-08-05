@@ -5,14 +5,15 @@ use App\Models\Value;
 use App\Models\Result;
 use App\Models\Criteria;
 use GuzzleHttp\Middleware;
+use App\Models\ValueCriteria;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ValueControler;
+use App\Http\Controllers\BobotController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserControllers;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AlternatifController;
-use App\Http\Controllers\BobotController;
-use App\Models\ValueCriteria;
+use App\Http\Controllers\ComparisonController;
 
 Route::get('/import-excel',[UserControllers::class,'import_excel']);
 Route::post('/import-excel',[UserControllers::class,'import_excel_post']);
@@ -61,3 +62,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+
+Route::get('/comparisons', [ComparisonController::class, 'index']);
+Route::post('/comparisons', [ComparisonController::class, 'store']);

@@ -94,52 +94,52 @@ class AlternatifController extends Controller
 
     public function import(Request $request)
     {
-   // Validate the file input
-   $validator = Validator::make($request->all(), [
-    'file' => 'required|file|mimes:xlsx,xls',
-]);
+        // Validate the file input
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:xlsx,xls',
+        ]);
 
-// Check if validation fails
-if ($validator->fails()) {
-    return redirect()->back()
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-}
-
-// Process the file upload
-if ($request->hasFile('file')) {
-    // Get the uploaded file
-    $file = $request->file('file');
-   
-    // Store the file in the 'imports' directory inside Laravel's storage
-    $path = $file->store('imports');
-    // dd($path);
-    // Check if file exists before importing
-    try {
-        
-        if (file_exists(storage_path('app/' . $path))) {
-        
-            // Import the Excel file using Laravel Excel
-            Excel::import(new DatasImport, storage_path('app/' . $path));
-            dd('app/' . $path);
-            // Optionally, delete the file after importing
-             Storage::delete($path);
-    
-            // Redirect with success message
-            
-            return redirect()->back()->with('success', 'File imported successfully.');
-        } else {
-            dd("error");
-            // File does not exist or cannot be accessed
-            return redirect()->back()->with('error', 'File does not exist or cannot be accessed.');
         }
-        dd("disini");
-    } catch (\Error $th) {
-        dd($th);
-    }
-}
 
-// Handle the case where no file was uploaded
-return redirect()->back()->withErrors('No file was uploaded.');
-}
+        // Process the file upload
+        if ($request->hasFile('file')) {
+            // Get the uploaded file
+            $file = $request->file('file');
+
+            // Store the file in the 'imports' directory inside Laravel's storage
+            $path = $file->store('imports');
+            // dd($path);
+            // Check if file exists before importing
+            try {
+
+                if (file_exists(storage_path('app/' . $path))) {
+
+                    // Import the Excel file using Laravel Excel
+                    Excel::import(new DatasImport, storage_path('app/' . $path));
+                    dd('app/' . $path);
+                    // Optionally, delete the file after importing
+                    Storage::delete($path);
+
+                    // Redirect with success message
+
+                    return redirect()->back()->with('success', 'File imported successfully.');
+                } else {
+                    dd("error");
+                    // File does not exist or cannot be accessed
+                    return redirect()->back()->with('error', 'File does not exist or cannot be accessed.');
+                }
+                dd("disini");
+            } catch (\Error $th) {
+                dd($th);
+            }
+        }
+
+        // Handle the case where no file was uploaded
+        return redirect()->back()->withErrors('No file was uploaded.');
+    }
 }

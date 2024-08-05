@@ -115,10 +115,10 @@ class DatasImport implements ToModel
 
     private function normalisasiData($data)
     {
-      // Daftar penggantian istilah untuk normalisasi
+     // Daftar penggantian istilah untuk normalisasi
     $petaPenggantian = [
-        'SMK' => 'SMA',
-        'SMA' => 'SMA',
+        'SMK' => '-',
+        'SMA' => '-',
         'TARBIYAH' => 'TARBIYAH',
         'BK' => 'BIMBINGAN KONSELING',
         'PAI' => 'PENDIDIKAN AGAMA ISLAM',
@@ -155,7 +155,8 @@ class DatasImport implements ToModel
         'PENDD.MATEMATIKA' => 'PENDIDIKAN MATEMATIKA',
         'PEND.BHS INGGRIS' => 'PENDIDIKAN BAHASA INGGRIS',
         'TBI' => 'BAHASA INGGRIS',
-        'KARAWITAN' => 'KARAWITAN'
+        'KARAWITAN' => 'KARAWITAN',
+        'HPI' => 'HUKUM PIDANA ISLAM'
     ];
 
     // Convert data to uppercase
@@ -166,7 +167,42 @@ class DatasImport implements ToModel
         $data = str_replace('ADM', 'ADMINISTRASI', $data);
     }
 
+    // Replace 'B K' with 'BIMBINGAN KONSELING'
+    if (strpos($data, 'B K') !== false) {
+        $data = str_replace('B K', 'BIMBINGAN KONSELING', $data);
+    }
+
+    // Replace 'PLS' with 'PENDIDIKAN'
+    if (strpos($data, 'PLS') !== false) {
+        $data = str_replace('PLS', 'PENDIDIKAN', $data);
+    }
+
+    // Replace 'PENJASKES' with 'PENDIDIKAN JASMANI DAN KESEHATAN'
+    if (strpos($data, 'PENJASKES') !== false) {
+        $data = str_replace('PENJASKES', 'PENDIDIKAN JASMANI DAN KESEHATAN', $data);
+    }
+
+    // Replace all occurrences of 'B.' with 'BAHASA'
+    if (strpos($data, 'B.') !== false) {
+        $data = str_replace('B.', 'BAHASA', $data);
+    }
+
+    // Replace all occurrences of 'PEND.' with 'PENDIDIKAN'
+    if (strpos($data, 'PEND.') !== false) {
+        $data = str_replace('PEND.', 'PENDIDIKAN', $data);
+    }
+
+    // Replace all occurrences of 'PEN.BHS' with 'PENDIDIKAN BAHASA'
+    if (strpos($data, 'PEN.BHS') !== false) {
+        $data = str_replace('PEN.BHS', 'PENDIDIKAN BAHASA', $data);
+    }
+
+    // Replace all occurrences of 'PDD.' with 'PENDIDIKAN'
+    if (strpos($data, 'PDD.') !== false) {
+        $data = str_replace('PDD.', 'PENDIDIKAN', $data);
+    }
+
     // Return normalized data
     return $petaPenggantian[$data] ?? $data;
-    }
+}
 }
