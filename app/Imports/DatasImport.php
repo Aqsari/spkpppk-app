@@ -25,6 +25,7 @@ class DatasImport implements ToModel
                 'JABATAN' => $this->cleanDataLevel($row[3]),
                 'PENDIDIKAN' => $this->cleanEducationLevel($row[4]),
                 'JURUSAN' => $this->normalisasiData($row[5]) ?? "-",
+                'criteria_value' => "Sesuai",
             ]);
 
             // Or simply skip if the record already exists
@@ -39,6 +40,7 @@ class DatasImport implements ToModel
             'JABATAN' => $this->cleanDataLevel($row[3]),
             'PENDIDIKAN' => $this->cleanEducationLevel($row[4]),
             'JURUSAN' => $this->normalisasiData($row[5]) ?? "-",
+            'criteria_value' => "Sesuai",
         ]);
     }
     private function cleanEducationLevel($value)

@@ -11,12 +11,6 @@
                 <div class="grow-0 w-2/4 object-center mt-9 rounded-md px-20 bg-slate-100">
                     <div class="object-center text-center mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
                         <h4 class="text-2xl font-medium tracking-tight text-gray-900 ">Edit data</h4>
-                        <p>{{ $data->id }}</p>
-                        <p>{{ $data->name }}</p>
-                        <p>{{ $data->data1 }}</p>
-                        <p>{{ $data->data2 }}</p>
-                        <p>{{ $data->data3 }}</p>
-                        <p>{{ $data->data4 }}</p>
                     </div>
                     <div class="mt-6">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Nama</label>
@@ -28,33 +22,84 @@
                         @enderror
                     </div>
                     <div class="mt-6">
-                        <label for="data1" class="block mb-2 text-sm font-medium text-gray-900 ">Kriteria
-                            1</label>
-                        <input type="text" id="data1" name="data1" required autofocus
-                            value="{{ old('data1') ?? $data->data1 }}"
+                        <label for="UMUR" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Umur
+                        </label>
+                        <input type="text" id="UMUR" name="UMUR" required autofocus
+                            value="{{ old('UMUR') ?? $data->UMUR }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            @error('UMUR')
+                            <div class="invalid-feedback"> {{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mt-6">
-                        <label for="data2" class="block mb-2 text-sm font-medium text-gray-900 ">Kriteria
-                            2</label>
-                        <input type="text" id="data2" name="data2" required autofocus
-                            value="{{ old('data2') ?? $data->data2 }}"
+                        <label for="LAMA_HONOR" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Lama Honor
+                        </label>
+                        <input type="text" id="LAMA_HONOR" name="LAMA_HONOR" required autofocus
+                            value="{{ old('LAMA_HONOR') ?? $data->LAMA_HONOR }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            @error('LAMA_HONOR')
+                            <div class="invalid-feedback"> {{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mt-6">
-                        <label for="data3" class="block mb-2 text-sm font-medium text-gray-900 ">Kriteria
-                            3</label>
-                        <input type="text" id="data3" name="data3" required autofocus
-                            value="{{ old('data3') ?? $data->data3 }}"
+                        <label for="JABATAN" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Jabatan
+                        </label>
+                        <select id="JABATAN" name="JABATAN" class="container rounded-md px-9 py-2">
+                            @foreach ($positions as $value)
+                                <option class="px-6 py-96" value="{{ $value->name }}"
+                                    {{ old('JABATAN' , $data->JABATAN) == $value->name ? 'selected' : '' }}>
+                                    {{ $value->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="text" id="JABATAN" name="JABATAN" required autofocus
+                            value="{{ old('JABATAN') ?? $data->JABATAN }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "> --}}
+                            @error('JABATAN')
+                            <div class="invalid-feedback"> {{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mt-6">
+                        <label for="PENDIDIKAN" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Pendidikan
+                        </label>
+                        <select id="PENDIDIKAN" name="PENDIDIKAN" class="container rounded-md px-9 py-2">
+                            @foreach ($educations as $value)
+                                <option class="px-6 py-96" value="{{ $value->name }}"
+                                    {{ old('PENDIDIKAN' , $data->PENDIDIKAN) == $value->name ? 'selected' : '' }}>
+                                    {{ $value->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="text" id="PENDIDIKAN" name="PENDIDIKAN" required autofocus
+                            value="{{ old('PENDIDIKAN') ?? $data->PENDIDIKAN }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "> --}}
+                            @error('PENDIDIKAN')
+                            <div class="invalid-feedback"> {{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mt-6">
+                        <label for="JURUSAN" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Jurusan
+                        </label>
+                        <input type="text" id="JURUSAN" name="JURUSAN" required autofocus
+                            value="{{ old('JURUSAN') ?? $data->JURUSAN }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            @error('JURUSAN')
+                            <div class="invalid-feedback"> {{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mt-6 ">
-                        <label for="data4" class="block mb-2 text-md font-medium p-3 text-gray-900">Kriteria
-                            4</label>
-                        <select id="data4" name="data4" class="block form-select w-5">
+                        <label for="criteria_value" class="block mb-2 text-sm font-medium text-gray-900 ">
+                            Keseuaian
+                        </label>
+                        <select id="criteria_value" name="criteria_value" class="container rounded-md px-9 py-2">
                             @foreach ($values as $value)
-                                <option class="px-96" value="{{ $value->value_name }}"
-                                    {{ old('data4', $data->data4) == $value->value_name ? 'selected' : '' }} >
+                                <option class="px-6 py-96" value="{{ $value->value_name }}"
+                                    {{ old('criteriavalue' , $data->criteria_value) == $value->value_name ? 'selected' : '' }}>
                                     {{ $value->value_name }}
                                 </option>
                             @endforeach

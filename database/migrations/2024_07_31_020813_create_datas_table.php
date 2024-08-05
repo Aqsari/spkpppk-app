@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('JABATAN'); // Position
             $table->string('PENDIDIKAN'); // Education
             $table->string('JURUSAN'); // Major
+            $table->string('criteria_value'); // the fit of old posison with education background
             $table->timestamps();
         });
 

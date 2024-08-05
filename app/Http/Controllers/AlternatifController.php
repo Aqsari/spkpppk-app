@@ -8,6 +8,8 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\DatasImport;
+use App\Models\Eduction;
+use App\Models\Position;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +23,10 @@ class AlternatifController extends Controller
             'alternatif.input',
             [
                 'title' => 'Alaternatif input',
-                'active' => 'alternatifinput'
+                'active' => 'alternatifinput',
+                'values' => Value::all(),
+                'positions' => Position::all(),
+                'educations' => Eduction::all()
             ]
         );
     }
@@ -29,11 +34,13 @@ class AlternatifController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:datas',
-            'data1' => 'required|max:255',
-            'data2' => 'required|max:255',
-            'data3' => 'required|max:255',
-            'data4' => 'max:255',
+            'name' => 'required|max:255',
+            'UMUR' => 'required|max:255',
+            'LAMA_HONOR' => 'required|max:255',
+            'JABATAN' => 'required|max:255',
+            'PENDIDIKAN' => 'required|max:255',
+            'JURUSAN' => 'required|max:255',
+            'criteria_value' => 'required|max:255',
             // add more validation rules for other form fields
         ]);
 
@@ -54,7 +61,12 @@ class AlternatifController extends Controller
     {
         $data = Data::findOrFail($id); // Retrieve the data by its ID
 
-        return view('alternatif.edit', ['data' => $data, 'values' => Value::all()]);
+        return view('alternatif.edit', 
+        ['data' => $data, 
+        'values' => Value::all(),
+        'positions' => Position::all(),
+        'educations' => Eduction::all()
+    ]);
     }
 
     public function edit($id): View
@@ -71,10 +83,12 @@ class AlternatifController extends Controller
         $data = Data::findOrFail($id);
 
         $rules = ([
-            'data1' => 'required|max:255',
-            'data2' => 'required|max:255',
-            'data3' => 'required|max:255',
-            'data4' => 'max:255',
+            'UMUR' => 'required|max:255',
+            'LAMA_HONOR' => 'required|max:255',
+            'JABATAN' => 'required|max:255',
+            'PENDIDIKAN' => 'required|max:255',
+            'JURUSAN' => 'required|max:255',
+            'criteria_value' => 'required|max:255',
             // add more validation rules for other form fields
         ]);
 
@@ -121,7 +135,7 @@ class AlternatifController extends Controller
 
                     // Import the Excel file using Laravel Excel
                     Excel::import(new DatasImport, storage_path('app/' . $path));
-                    dd('app/' . $path);
+                    // dd('app/' . $path);
                     // Optionally, delete the file after importing
                     Storage::delete($path);
 

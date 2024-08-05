@@ -19,10 +19,12 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admins',
             'username' => 'admin',
-            'username' => 'aaaa',
+            'password' => 'aaaa',
         ]);
 
         $this->call(ValuesTableSeeder::class);
         $this->call(valueCriteriaTabelSeeder::class);
+        $this->call(EducationTableSeeder::class);
+        $this->call(PositionTableSeeder::class);
     }
 }

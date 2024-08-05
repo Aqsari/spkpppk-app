@@ -47,6 +47,9 @@
                         Jurusan
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Kesesuaian
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Edit</span>
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -79,6 +82,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $data['JURUSAN'] }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $data['criteria_value'] }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             <a href="/datapeserta/{{ $data['id'] }}/edit"
