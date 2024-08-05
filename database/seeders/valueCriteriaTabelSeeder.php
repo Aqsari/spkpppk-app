@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class valueCriteriaTabelSeeder extends Seeder
 {
@@ -12,13 +13,14 @@ class valueCriteriaTabelSeeder extends Seeder
      */
     public function run(): void
     {
-        / DB::table('value_criterias')->insert([
+         DB::table('value_criterias')->insert([
             [
                 'criteria_name' => 'Kriteria 1',
                 'criteria1' => 1,
                 'criteria2' => 1,
                 'criteria3' => 1,
                 'criteria4' => 1,
+                'costbenefit' => 'benefit'
             ],
             [
                 'criteria_name' => 'Kriteria 2',
@@ -26,6 +28,7 @@ class valueCriteriaTabelSeeder extends Seeder
                 'criteria2' => 1,
                 'criteria3' => 1,
                 'criteria4' => 1,
+                'costbenefit' => 'benefit'
             ],
             [
                 'criteria_name' => 'Kriteria 3',
@@ -33,6 +36,7 @@ class valueCriteriaTabelSeeder extends Seeder
                 'criteria2' => 1,
                 'criteria3' => 1,
                 'criteria4' => 1,
+                'costbenefit' => 'benefit'
             ],
             [
                 'criteria_name' => 'Kriteria 4',
@@ -40,6 +44,7 @@ class valueCriteriaTabelSeeder extends Seeder
                 'criteria2' => 1,
                 'criteria3' => 1,
                 'criteria4' => 1,
+                'costbenefit' => 'benefit'
             ],
         ]);
     }

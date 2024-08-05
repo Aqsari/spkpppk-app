@@ -140,6 +140,6 @@ class AlternatifController extends Controller
         }
 
         // Handle the case where no file was uploaded
-        return redirect()->back()->withErrors('No file was uploaded.');
+        return redirect('/alternatif')->back()->withErrors('No file was uploaded.');
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double('criteria2');
             $table->double('criteria3');
             $table->double('criteria4');
+            $table->string('costbenefit');
             $table->timestamps();
         });
 

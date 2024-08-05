@@ -17,10 +17,12 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'username' => 'bintangmalam',
+            'name' => 'Admins',
+            'username' => 'admin',
+            'username' => 'aaaa',
         ]);
 
         $this->call(ValuesTableSeeder::class);
+        $this->call(valueCriteriaTabelSeeder::class);
     }
 }
