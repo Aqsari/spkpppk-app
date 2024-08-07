@@ -2,17 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Data;
+use App\Models\tableahpduas;
+use App\Models\tableahpsatus;
+use App\Models\tableahptigas;
 use App\Models\Value;
+use App\Models\tablewaspasalternatifs;
+use App\Models\tablewaspasnolaibobots;
+use App\Models\tablewaspasnormalisasidanqis;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\DatasImport;
-use App\Models\Eduction;
-use App\Models\Position;
+
 
 class PerhitunganController extends Controller
 {
+    public function index()
+    {
+
+        return view(
+            '/perhitungan',
+            [
+                'title' => 'Perhitungan Metode AHP',
+                'active' => 'perhitunganahp',
+                'tablesatu' => tableahpsatus::all(),
+                'tabledua' => tableahpduas::all(),
+                'tabletiga' => tableahptigas::all(),
+              
+            ]
+        );
+    }
+    public function hitung()
+    {
+
+        return view(
+            '/perhitungan',
+            [
+                'title' => 'Perhitungan Metode AHP',
+                'active' => 'perhitunganahp',
+                'tablesatu' => tableahpsatus::all(),
+                'tabledua' => tableahpduas::all(),
+                'tabletiga' => tableahptigas::all(),
+              
+            ]
+        );
+    }
+
     public function alternatif()
     {
 
@@ -20,8 +53,8 @@ class PerhitunganController extends Controller
             'calcultation.alternatifvalue',
             [
                 'title' => 'Perhitungan Metode Waspas',
-                'active' => 'alternatifinput',
-                'values' => Value::all(),
+                'active' => 'perhitunganalternatif',
+                'waspasAlternatif' => tablewaspasalternatifs::all(),
               
             ]
         );
@@ -30,12 +63,14 @@ class PerhitunganController extends Controller
     public function normalisasi()
     {
 
+        
         return view(
             'calcultation.waspascalculation',
             [
                 'title' => 'Perhitungan Akhir Metode Waspas ',
-                'active' => 'alternatifinput',
-                'values' => Value::all(),
+                'active' => 'perhitunganwaspas',
+                'waspasNilaiBobot' => tablewaspasnolaibobots::all(),
+                'waspasNormalisasi' => tablewaspasnormalisasidanqis::all(),
               
             ]
         );

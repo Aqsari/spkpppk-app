@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(valueCriteriaTabelSeeder::class);
         $this->call(EducationTableSeeder::class);
         $this->call(PositionTableSeeder::class);
+        $this->call(PerhitunganAHPTableSeeder::class);
+        $this->call(PerhitunganWaspasTableSeeder::class);
     }
 }

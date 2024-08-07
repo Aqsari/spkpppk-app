@@ -49,11 +49,10 @@ Route::post('/bobot',  ['title'=> 'Input Nilai Bobot',BobotController::class, 's
 Route::get('/comparisons', [ComparisonController::class, 'index']);
 Route::post('/comparisons', [ComparisonController::class, 'store']);
 
-Route::get('/perhitungan', function () {
-    return view('perhitungan',['title'=> 'Perhitungan dengan Metode AHP']);
-})->middleware('auth');
+Route::get('/perhitungan',[PerhitunganController::class,'index'])->middleware('auth');
 Route::get('/calculation.alternatifvalue', [PerhitunganController::class,'alternatif'])->middleware('auth');
 Route::get('/calculation.normalisasi', [PerhitunganController::class,'normalisasi'])->middleware('auth');
+Route::get('/calculation.hitung', [PerhitunganController::class,'hitung'])->middleware('auth');
 
 Route::get('/hasil', function () {
     return view('hasil',['title'=> 'Hasil Ranking Calon PPPK Kementrian Agama Tanah Datar','results'=> Result::all(), 'values'=> Value::all()]);

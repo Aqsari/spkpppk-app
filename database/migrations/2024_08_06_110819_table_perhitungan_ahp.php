@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tableahpsatu', function (Blueprint $table) {
+        Schema::create('tableahpsatuses', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('criteria1');
@@ -21,20 +21,20 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('tableahpdua', function (Blueprint $table) {
+        Schema::create('tableahpduas', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('criteria1');
             $table->double('criteria2');
             $table->double('criteria3');
             $table->double('criteria4');
-            $table->double('Jumlah');
+            $table->double('jumlah');
             $table->double('prioritas');
             $table->double('eigenvalue');
             $table->timestamps();
         });
 
-        Schema::create('tableahptiga', function (Blueprint $table) {
+        Schema::create('tableahptigas', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('value');
@@ -47,8 +47,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tableahpsatu');
-        Schema::dropIfExists('tableahpdua');
-        Schema::dropIfExists('tableahptiga');
+        Schema::dropIfExists('tableahpsatuses');
+        Schema::dropIfExists('tableahpduas');
+        Schema::dropIfExists('tableahptigas');
     }
 };

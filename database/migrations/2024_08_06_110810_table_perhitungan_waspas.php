@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tablewaspasnolaibobot', function (Blueprint $table) {
+        Schema::create('tablewaspasnolaibobots', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('nilai');
             $table->timestamps();
         });
 
-        Schema::create('tablewaspasalternatif', function (Blueprint $table) {
+        Schema::create('tablewaspasalternatifs', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('criteria1');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('tablewaspasnormalisasidanqi', function (Blueprint $table) {
+        Schema::create('tablewaspasnormalisasidanqis', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->double('criteria1');
@@ -45,8 +45,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tableahpsatu');
-        Schema::dropIfExists('tableahpdua');
-        Schema::dropIfExists('tableahptiga');
+        Schema::dropIfExists('tablewaspasalternatifs');
+        Schema::dropIfExists('tablewaspasnormalisasidanqis');
+        Schema::dropIfExists('tablewaspasnolaibobots');
     }
 };

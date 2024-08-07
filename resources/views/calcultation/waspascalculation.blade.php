@@ -47,10 +47,10 @@
     </div>
 
     {{-- Button untuk pindah --}}
-    <div class="grid  place-items-end  rounded-md">
+    <div class="grid  place-items-start  rounded-md">
 
         <div class="grid grid-flow-col mx-4 mb-12 gap-3">
-    <a href="/perhitungan" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
+    <a href="/calculation.alternatifvalue" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
     Sebelumnya
     </a>
         {{-- <a href="/calculation.alternatifvalue"calculation.normalisasi
@@ -59,6 +59,60 @@
         </a> --}}
     </div>
     </div>
+
+    <div>
+        {{-- table alternatif --}}
+        {{-- Table  --}}
+        <div class="flex overflow-y-auto rounded-lg my-8">
+            <table class="w-full text-sm text-left rtl:text-right  text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            <span class="sr-only"></span>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Kriteria 1
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Kriteria 2
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Kriteria 3
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Kriteria 4
+                        </th>
+                        
+    
+                    </tr>
+                </thead>
+                <tbody>
+    
+                   @foreach ( $waspasNilaiBobot as $data)
+                   <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
+                        {{ $data->name }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ $data->nilai }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $data->criteria2 }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $data->criteria3 }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $data->criteria4 }}
+                    </td>
+                   
+                </tr>
+    
+                   @endforeach
+                </tbody>
+            </table>
+        </div>
+
 
   <div>
     {{-- table alternatif --}}
@@ -90,27 +144,29 @@
             </thead>
             <tbody>
 
-                <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
-                        999
-                    </th>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                </tr>
+               @foreach ( $waspasNormalisasi as $data)
+               <tr class="bg-white border-b ">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
+                    {{ $data->name }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ $data->criteria1 }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $data->criteria2 }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $data->criteria3 }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $data->criteria4 }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $data->qi }}
+                </td>
+            </tr>
 
+               @endforeach
             </tbody>
         </table>
     </div>
