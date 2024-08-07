@@ -51,7 +51,7 @@ Route::post('/comparisons', [ComparisonController::class, 'store']);
 
 Route::get('/perhitungan',[PerhitunganController::class,'index'])->middleware('auth');
 Route::get('/calculation.alternatifvalue', [PerhitunganController::class,'alternatif'])->middleware('auth');
-Route::get('/calculation.normalisasi', [PerhitunganController::class,'normalisasi'])->middleware('auth');
+Route::get('/calcultation.waspascalculation', [PerhitunganController::class,'normalisasi'])->middleware('auth');
 Route::get('/calculation.hitung', [PerhitunganController::class,'hitung'])->middleware('auth');
 
 Route::get('/hasil', function () {

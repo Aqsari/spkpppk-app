@@ -139,10 +139,10 @@
                     </tbody>
                 </table>
             </div>
-            <div class="flex items-baseline justify-start ">
+            <div class="flex items-baseline justify-start lg:w-2/12 ">
                 <p
                     class="px-5 py-5  my-7 text-4xl text-center justify-center font-bold text-gray-900 bg-white  rounded-lg ">
-                    Konsisten
+                    {{ $konsistensiData }}
                 </p>
             </div>
         </div>

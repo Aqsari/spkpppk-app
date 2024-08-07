@@ -88,27 +88,27 @@
                 </thead>
                 <tbody>
     
-                   @foreach ( $waspasNilaiBobot as $data)
+                  
                    <tr class="bg-white border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
-                        {{ $data->name }}
+                        Nilai Bobot
                     </th>
                     <td class="px-6 py-4">
-                        {{ $data->nilai }}
+                        {{ $waspasNilaiBobot[1] }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $data->criteria2 }}
+                        {{ $waspasNilaiBobot[2] }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $data->criteria3 }}
+                        {{ $waspasNilaiBobot[3] }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $data->criteria4 }}
+                        {{ $waspasNilaiBobot[4] }}
                     </td>
                    
                 </tr>
     
-                   @endforeach
+                 
                 </tbody>
             </table>
         </div>
