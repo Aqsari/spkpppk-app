@@ -7,7 +7,7 @@ use App\Models\Criteria;
 use GuzzleHttp\Middleware;
 use App\Models\ValueCriteria;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ValueControler;
+use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\BobotController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserControllers;
@@ -52,6 +52,8 @@ Route::post('/comparisons', [ComparisonController::class, 'store']);
 Route::get('/perhitungan', function () {
     return view('perhitungan',['title'=> 'Perhitungan dengan Metode AHP']);
 })->middleware('auth');
+Route::get('/calculation.alternatifvalue', [PerhitunganController::class,'alternatif'])->middleware('auth');
+Route::get('/calculation.normalisasi', [PerhitunganController::class,'normalisasi'])->middleware('auth');
 
 Route::get('/hasil', function () {
     return view('hasil',['title'=> 'Hasil Ranking Calon PPPK Kementrian Agama Tanah Datar','results'=> Result::all(), 'values'=> Value::all()]);

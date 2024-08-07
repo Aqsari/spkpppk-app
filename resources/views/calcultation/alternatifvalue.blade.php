@@ -6,7 +6,7 @@
     {{-- progress bar --}}
     <div class="flex-col justify-center  my-5">
         <div class="flex bg-gray-200 rounded-full h-2.5 mx-9">
-            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 5%"></div>
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 50%"></div>
         </div>
         <div class="-mt-8">
             <ol class="flex items-center mx-9  sm:mb-5">
@@ -49,100 +49,19 @@
     {{-- Button untuk pindah --}}
     <div class="grid  place-items-end  rounded-md">
 
-        {{-- <div class="grid grid-flow-col mx-4 mb-12 gap-3">
-    <a href="/bobot.index" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
+        <div class="grid grid-flow-col mx-4 mb-12 gap-3">
+    <a href="/perhitungan" class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
     Sebelumnya
-    </a> --}}
-        <a href="/calculation.alternatifvalue"
+    </a>
+        <a href="/calculation.normalisasi"
             class="px-4 py-2  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
             Selanjutnya
         </a>
     </div>
-
-
-    <div class="flex flex-grow justify-between">
-        {{-- Table  satu --}}
-        <div class="container bg-purple-500 w-6/12 overflow-auto border-solid rounded-md my-8">
-            <table class="w-full text-sm text-left text-gray-500 ">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            <span class="sr-only"></span>
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kriteria 1
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kriteria 2
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kriteria 3
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kriteria 4
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
-                            999
-                        </th>
-                        <td class="px-6 py-4">
-                            999
-                        </td>
-                        <td class="px-6 py-4">
-                            999
-                        </td>
-                        <td class="px-6 py-4">
-                            999
-                        </td>
-                        <td class="px-6 py-4">
-                            999
-                        </td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        {{-- Table  tiga --}}
-        <div class="flex overflow-auto rounded-lg my-8">
-            <table class="w-full text-sm text-left rtl:text-right  text-gray-500 ">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            <span class="sr-only"></span>
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kriteria 1
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dar">
-                            999
-                        </th>
-                        <td class="px-6 py-4">
-                            999
-                        </td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="flex items-center justify-center "><p class="px-5 py-5  text-6xl text-center justify-center font-bold text-gray-900 bg-white  rounded-lg ">
-            Konsisten
-    </p></div>
     </div>
 
-    {{-- table dua --}}
+  <div>
+    {{-- table alternatif --}}
     {{-- Table  --}}
     <div class="flex overflow-y-auto rounded-lg my-8">
         <table class="w-full text-sm text-left rtl:text-right  text-gray-500 ">
@@ -163,15 +82,7 @@
                     <th scope="col" class="px-6 py-3">
                         Kriteria 4
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        Jumlah
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Prioritas
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Eigen Value
-                    </th>
+                    
 
                 </tr>
             </thead>
@@ -193,16 +104,6 @@
                     <td class="px-6 py-4">
                         999
                     </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-                    <td class="px-6 py-4">
-                        999
-                    </td>
-
                 </tr>
 
             </tbody>
