@@ -244,7 +244,7 @@ class PerhitunganController extends Controller
         return view(
             'calcultation.alternatifvalue',
             [
-                'warning' = > $warning,
+                'warning' => $warning,
                 'title' => 'Perhitungan Metode Waspas',
                 'active' => 'perhitunganalternatif',
                 'waspasAlternatif' => tablewaspasalternatifs::all(),
