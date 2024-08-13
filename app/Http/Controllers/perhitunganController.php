@@ -60,7 +60,6 @@ class PerhitunganController extends Controller
             $dataBaru = tableahpsatus::find($i);
             $dataBaru->criteria1 = round($data->criteria1, $jumlahDesimal);
             $dataBaru->save();
-            //  dd($waspasNilaiBobot);
         }
         $dataBaru = tableahpsatus::find(5);
         $dataBaru->criteria1 = round($jumlahTotalKriteria1, $jumlahDesimal);
@@ -114,7 +113,6 @@ class PerhitunganController extends Controller
             $dataBaruTabelDua->criteria1 = round($nialiBaru, $jumlahDesimal);
             $jumlahKriteria1 += $nialiBaru;
             $dataBaruTabelDua->save();
-            //  dd($waspasNilaiBobot);
         }
 
 
@@ -129,7 +127,6 @@ class PerhitunganController extends Controller
             $dataBaru->criteria2 = round($nialiBaru, $jumlahDesimal);
             $jumlahKriteria2 += $nialiBaru;
             $dataBaru->save();
-            //  dd($waspasNilaiBobot);
         }
 
 
@@ -143,7 +140,6 @@ class PerhitunganController extends Controller
             $dataBaru->criteria3 = round($nialiBaru, $jumlahDesimal);
             $jumlahKriteria3 += $nialiBaru;
             $dataBaru->save();
-            //  dd($waspasNilaiBobot);
         }
 
 
@@ -233,11 +229,37 @@ class PerhitunganController extends Controller
     public function alternatif()
     {
         $warning = "input data alternatif pada menu alternatif";
-        $data = Data::all();
-        if ($data == null) {
-            $warning = "input data alternatif pada menu alternatif";
+        $jumlahDesimal = 4;
+        $totalRecords = Data::count();
+        if ($totalRecords == 0) {
+            $warning = "input data alternatif pada menu alternatif untuk melanjutkan proses";
         } else {
             $warning = "";
+            for ($i = 1; $i <= $totalRecords; $i++) {
+                $data = Data::find($i);
+                $dataName = $data->name;
+                $dataKriteria1 = $data->UMUR;
+                $dataKriteria2 = $data->LAMA_HONOR;
+                $dataKriteria3 = $data->PENDIDIKAN;
+                $dataKriteria4 = $data->criteria_value;
+                $databaru = tablewaspasalternatifs::find($i);
+                if ($databaru == null) {
+                    // buat data baru pada tabel waspas alternatif
+                    $dataBaruKriteria1 = round((60-$dataKriteria1)/36,$jumlahDesimal);
+                    $dataBaruKriteria2 = round($dataKriteria2/36,$jumlahDesimal);
+                    tablewaspasalternatifs::create([
+                        'name' => $dataName, 
+                        'criteria1' => $dataBaruKriteria1, 
+                        'criteria2' => $dataBaruKriteria2 , 
+                        'criteria3' => 0, 
+                        'criteria4' => 0, 
+                    ]);
+                
+                } else {
+                    // buat data baru pada tabel waspas alternatif
+// update data
+                }
+            }
         }
 
 
@@ -263,7 +285,6 @@ class PerhitunganController extends Controller
         for ($i = 1; $i < 5; $i++) {
             $data = tablewaspasnolaibobots::find($i);
             $waspasNilaiBobot[$i] = $data->nilai;
-            //  dd($waspasNilaiBobot);
         }
         return view(
             'calcultation.waspascalculation',

@@ -43,6 +43,9 @@ class DatasImport implements ToModel
             'criteria_value' => "Sesuai",
         ]);
     }
+
+    
+
     private function cleanEducationLevel($value)
     {
         // Normalize the string by removing spaces and dots

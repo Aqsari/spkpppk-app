@@ -11,4 +11,9 @@ class Data extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'UMUR', 'LAMA_HONOR', 'JABATAN', 'PENDIDIKAN','JURUSAN','criteria_value'];
+
+    public function education()
+    {
+        return $this->belongsTo(Eduction::class);
+    }
 }

@@ -11,4 +11,9 @@ class Eduction extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'value'];
+
+    public function datas()
+    {
+        return $this->hasMany(Data::class);
+    }
 }
